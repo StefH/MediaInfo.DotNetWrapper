@@ -1,0 +1,33 @@
+{
+    "version": "1.0.0.0",
+    "title": "MediaInfo.DotNetWrapper",
+    "description": "MediaInfo.DotNetWrapper is a wrappper for the MediaInfo.dll (https://mediaarea.net/en/MediaInfo). MediaInfo is a convenient unified display of the most relevant technical and tag data for video and audio files.",
+    "authors": [ "Stef Heyenrath", "Yaroslav V Tatarenko" ],
+
+    "packOptions": {
+        "summary": "MediaInfo.DotNetWrapper is a wrappper for the MediaInfo.dll (https://mediaarea.net/en/MediaInfo). MediaInfo is a convenient unified display of the most relevant technical and tag data for video and audio files.",
+        "tags": [ "MediaInfo", "MediaInfo.dll", "MediaInfo.Native", "DotNetWrapper", "wrapper", "dotnet", "c#", ".net" ],
+        "owners": [ "Stef Heyenrath" ],
+        "repository": {
+            "type": "git",
+            "url": "https://github.com/StefH/MediaInfo.DotNetWrapper"
+        },
+        "projectUrl": "https://github.com/StefH/MediaInfo.DotNetWrapper",
+        "iconUrl": "https://raw.githubusercontent.com/StefH/MediaInfo.DotNetWrapper/master/logo/MediaInfo.NET.png",
+        "licenseUrl": "https://raw.githubusercontent.com/StefH/MediaInfo.DotNetWrapper/master/LICENSE",
+        "releaseNotes": "Initial version"
+    },
+
+    "dependencies": {
+        "MediaInfo.Native": "0.7.91.1",
+        "JetBrains.Annotations": {
+            "version": "10.1.4",
+            "type": "build"
+        }
+    },
+
+    "frameworks": {
+        "net4": {
+        }
+    }
+}
