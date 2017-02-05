@@ -156,5 +156,8 @@ namespace MediaInfo.DotNetWrapper
           IntPtr filePos,
           IntPtr streamKind,
           IntPtr streamNumber);
+
+        [DllImport("kernel32.dll")]
+        internal static extern long GetDriveType(string driveLetter);
     }
 }

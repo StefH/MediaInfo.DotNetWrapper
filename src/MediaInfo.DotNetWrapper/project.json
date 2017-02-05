@@ -1,5 +1,5 @@
 {
-    "version": "1.0.0.0",
+    "version": "1.0.1.0",
     "title": "MediaInfo.DotNetWrapper",
     "description": "MediaInfo.DotNetWrapper is a wrappper for the MediaInfo.dll (https://mediaarea.net/en/MediaInfo). MediaInfo is a convenient unified display of the most relevant technical and tag data for video and audio files.",
     "authors": [ "Stef Heyenrath", "Yaroslav V Tatarenko" ],
@@ -15,13 +15,13 @@
         "projectUrl": "https://github.com/StefH/MediaInfo.DotNetWrapper",
         "iconUrl": "https://raw.githubusercontent.com/StefH/MediaInfo.DotNetWrapper/master/logo/MediaInfo.NET.png",
         "licenseUrl": "https://raw.githubusercontent.com/StefH/MediaInfo.DotNetWrapper/master/LICENSE",
-        "releaseNotes": "Initial version"
+        "releaseNotes": "Upgraded to 0.7.92.1 and added 'GetDriveType()' method"
     },
 
     "dependencies": {
-        "MediaInfo.Native": "0.7.91.1",
+        "MediaInfo.Native": "0.7.92.1",
         "JetBrains.Annotations": {
-            "version": "10.1.4",
+            "version": "10.2.1",
             "type": "build"
         }
     },

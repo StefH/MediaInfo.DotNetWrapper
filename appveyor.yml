@@ -1,0 +1,29 @@
+os: Visual Studio 2015
+
+version: 1.0.0.{build}
+
+configuration:
+- Release
+
+platform: x64
+
+init:
+- ps: $Env:LABEL = "CI" + $Env:APPVEYOR_BUILD_NUMBER.PadLeft(5, "0")
+
+install:
+- ps: Start-FileDownload 'https://dotnetcli.blob.core.windows.net/dotnet/beta/Installers/Latest/dotnet-dev-win-x64.latest.exe'
+- cmd: dotnet-dev-win-x64.latest.exe /quiet
+
+environment:
+  PATH: $(PATH);$(PROGRAMFILES)\dotnet\
+
+build_script:
+- appveyor-retry dotnet restore .\src\MediaInfo.DotNetWrapper
+- dotnet build .\src\MediaInfo.DotNetWrapper\project.json -c %CONFIGURATION%
+- dotnet pack -c Release --no-build --version-suffix %LABEL% -o .\artifacts .\src\MediaInfo.DotNetWrapper\project.json
+
+artifacts:
+- path: artifacts\**\*.*
+
+cache:
+- '%USERPROFILE%\.nuget\packages'
