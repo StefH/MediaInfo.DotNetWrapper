@@ -5,7 +5,10 @@ version: 1.0.0.{build}
 configuration:
 - Release
 
-platform: x64
+platform:
+- Any CPU
+- x64
+- x86
 
 init:
 - ps: $Env:LABEL = "CI" + $Env:APPVEYOR_BUILD_NUMBER.PadLeft(5, "0")

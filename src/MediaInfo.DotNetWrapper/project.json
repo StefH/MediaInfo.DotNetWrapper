@@ -2,7 +2,7 @@
     "version": "1.0.1.0",
     "title": "MediaInfo.DotNetWrapper",
     "description": "MediaInfo.DotNetWrapper is a wrappper for the MediaInfo.dll (https://mediaarea.net/en/MediaInfo). MediaInfo is a convenient unified display of the most relevant technical and tag data for video and audio files.",
-    "authors": [ "Stef Heyenrath", "Yaroslav V Tatarenko" ],
+    "authors": [ "Yaroslav V Tatarenko", "Stef Heyenrath" ],
 
     "packOptions": {
         "summary": "MediaInfo.DotNetWrapper is a wrappper for the MediaInfo.dll (https://mediaarea.net/en/MediaInfo). MediaInfo is a convenient unified display of the most relevant technical and tag data for video and audio files.",
