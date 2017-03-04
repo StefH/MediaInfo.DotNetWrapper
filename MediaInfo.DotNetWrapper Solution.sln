@@ -18,6 +18,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{D32C9C10-8529-4C43-82F4-D0B022DD3AD0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaInfo.DotNetWrapper.ConsoleTest", "test\MediaInfo.DotNetWrapper.ConsoleTest\MediaInfo.DotNetWrapper.ConsoleTest.csproj", "{D5073780-6F87-4943-8B69-CBE930C2334F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{91171908-E4A8-4290-A2DA-3931F33B5197} = {91171908-E4A8-4290-A2DA-3931F33B5197}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
