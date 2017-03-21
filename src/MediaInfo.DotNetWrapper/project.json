@@ -22,7 +22,7 @@
     "dependencies": {
         "MediaInfo.Native": "0.7.93",
         "JetBrains.Annotations": {
-            "version": "10.3.0",
+            "version": "10.4.0",
             "type": "build"
         }
     },
