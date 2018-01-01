@@ -22,9 +22,8 @@ environment:
   PATH: $(PATH);$(PROGRAMFILES)\dotnet\
 
 build_script:
-- appveyor-retry dotnet restore .\src\MediaInfo.DotNetWrapper
-- dotnet build .\src\MediaInfo.DotNetWrapper\project.json -c %CONFIGURATION%
-- dotnet pack -c Release --no-build --version-suffix %LABEL% -o .\artifacts .\src\MediaInfo.DotNetWrapper\project.json
+- dotnet restore .\src\MediaInfo.DotNetWrapper\MediaInfo.DotNetWrapper.csproj
+- dotnet build .\src\MediaInfo.DotNetWrapper\MediaInfo.DotNetWrapper.csproj -c %CONFIGURATION%
 
 artifacts:
 - path: artifacts\**\*.*

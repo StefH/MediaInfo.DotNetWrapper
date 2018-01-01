@@ -10,16 +10,17 @@
     <AssemblyName>MediaInfo.DotNetWrapper</AssemblyName>
     <PackageId>MediaInfo.DotNetWrapper</PackageId>
     <PackageTags>MediaInfo;MediaInfo.dll;MediaInfo.Native;DotNetWrapper;wrapper;dotnet;c#;.net</PackageTags>
-    <PackageReleaseNotes>Upgraded to 0.7.93 (ATMOS support)</PackageReleaseNotes>
+    <PackageReleaseNotes>Upgraded to 17.12.0</PackageReleaseNotes>
     <PackageIconUrl>https://raw.githubusercontent.com/StefH/MediaInfo.DotNetWrapper/master/logo/MediaInfo.NET.png</PackageIconUrl>
     <PackageProjectUrl>https://github.com/StefH/MediaInfo.DotNetWrapper</PackageProjectUrl>
     <PackageLicenseUrl>https://raw.githubusercontent.com/StefH/MediaInfo.DotNetWrapper/master/LICENSE</PackageLicenseUrl>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/StefH/MediaInfo.DotNetWrapper</RepositoryUrl>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MediaInfo.Native" Version="0.7.93" />
+    <PackageReference Include="MediaInfo.Native" Version="17.12.0" />
     <PackageReference Include="JetBrains.Annotations" Version="10.4.0">
       <PrivateAssets>All</PrivateAssets>
     </PackageReference>
