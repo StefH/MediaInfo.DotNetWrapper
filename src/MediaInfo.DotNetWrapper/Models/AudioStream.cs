@@ -111,13 +111,7 @@ namespace MediaInfo.DotNetWrapper.Models
         /// <value>
         /// The codec friendly name.
         /// </value>
-        public string CodecFriendly
-        {
-            get
-            {
-                return CodecFrendlyNames.TryGetValue(Codec, out string result) ? result : string.Empty;
-            }
-        }
+        public string CodecFriendly => CodecFrendlyNames.TryGetValue(Codec, out string result) ? result : string.Empty;
 
         /// <summary>
         /// Gets the stream duration.
