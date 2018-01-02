@@ -2,7 +2,7 @@ using System;
 using System.Diagnostics.CodeAnalysis;
 using JetBrains.Annotations;
 
-namespace MediaInfo.DotNetWrapper
+namespace MediaInfo.DotNetWrapper.Enumerations
 {
     [PublicAPI]
     [SuppressMessage("ReSharper", "InconsistentNaming")]

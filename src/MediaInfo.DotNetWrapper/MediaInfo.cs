@@ -1,6 +1,7 @@
 using System;
 using System.Runtime.InteropServices;
 using JetBrains.Annotations;
+using MediaInfo.DotNetWrapper.Enumerations;
 
 namespace MediaInfo.DotNetWrapper
 {

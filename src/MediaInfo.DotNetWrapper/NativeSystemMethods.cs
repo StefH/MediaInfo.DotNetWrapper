@@ -1,4 +1,5 @@
-﻿using System;
+﻿// ReSharper disable InconsistentNaming
+using System;
 using System.Runtime.InteropServices;
 
 namespace MediaInfo.DotNetWrapper
@@ -28,5 +29,8 @@ namespace MediaInfo.DotNetWrapper
         [DllImport(Kernel32Dll, SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
         internal static extern bool FreeLibrary(IntPtr hModule);
+
+        [DllImport(Kernel32Dll)]
+        internal static extern long GetDriveType(string driveLetter);
     }
 }

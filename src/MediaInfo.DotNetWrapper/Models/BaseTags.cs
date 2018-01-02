@@ -1,0 +1,186 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace MediaInfo.DotNetWrapper.Models
+{
+    /// <summary>
+    /// Base class to read tags from stream
+    /// </summary>
+    public abstract class BaseTags
+    {
+        /// <summary>
+        /// Gets or sets the tags.
+        /// </summary>
+        /// <value>
+        /// The tags.
+        /// </value>
+        internal IDictionary<string, object> Tags { get; } = new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase);
+
+        /// <summary>
+        /// Gets the title of the media.
+        /// </summary>
+        /// <value>
+        /// The title of the media.
+        /// </value>
+        public string Title => Tags.TryGetValue("Title", out var result) ? (string)result : null;
+
+        /// <summary>
+        /// Gets a short description of the contents, such as "Two birds flying".
+        /// </summary>
+        /// <value>
+        /// A short description of the contents, such as "Two birds flying".
+        /// </value>
+        public string Description => Tags.TryGetValue("Description", out var result) ? (string)result : null;
+
+        /// <summary>
+        /// Gets the keywords to the item separated by a comma, used for searching.
+        /// </summary>
+        /// <value>
+        /// The keywords to the item separated by a comma, used for searching.
+        /// </value>
+        public string[] Keywords => Tags.TryGetValue("Keywords", out var result) ? ((string)result).Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Select(x => x.Trim()).ToArray() : null;
+
+        /// <summary>
+        /// Gets the country.
+        /// </summary>
+        /// <value>
+        /// The country.
+        /// </value>
+        public string Country => Tags.TryGetValue("Country", out var result) ? (string)result : null;
+
+        /// <summary>
+        /// Gets the time that the item was originally released.
+        /// </summary>
+        /// <value>
+        /// The time that the item was originally released.
+        /// </value>
+        public DateTime? ReleasedDate => Tags.TryGetValue("Released_Date", out var result) ? (DateTime?)result : null;
+
+        /// <summary>
+        /// Gets the time that the encoding of this item was completed began.
+        /// </summary>
+        /// <value>
+        /// The time that the encoding of this item was completed began.
+        /// </value>
+        public DateTime? EncodedDate => Tags.TryGetValue("Encoded_Date", out var result) ? (DateTime?)result : null;
+
+        /// <summary>
+        /// Gets the time that the tags were done for this item.
+        /// </summary>
+        /// <value>
+        /// The time that the tags were done for this item.
+        /// </value>
+        public DateTime? TaggedDate => Tags.TryGetValue("Tagged_Date", out var result) ? (DateTime?)result : null;
+
+        /// <summary>
+        /// Gets any comment related to the content.
+        /// </summary>
+        /// <value>
+        /// Any comment related to the content.
+        /// </value>
+        public string Comment => Tags.TryGetValue("Comment", out var result) ? (string)result : null;
+
+        /// <summary>
+        /// Gets a numeric value defining how much a person likes the song/movie. The number is between 0 and 5 with decimal values possible (e.g. 2.7), 5(.0) being the highest possible rating.
+        /// </summary>
+        /// <value>
+        /// a numeric value defining how much a person likes the song/movie. The number is between 0 and 5 with decimal values possible (e.g. 2.7), 5(.0) being the highest possible rating.
+        /// </value>
+        public double? Rating => Tags.TryGetValue("Rating", out var result) ? (double?)result : null;
+
+        /// <summary>
+        /// Gets the copyright attribution.
+        /// </summary>
+        /// <value>
+        /// The copyright attribution.
+        /// </value>
+        public string Copyright => Tags.TryGetValue("Copyright", out var result) ? (string)result : null;
+
+        /// <summary>
+        /// Gets the name of the organization producing the track (i.e. the 'record label').
+        /// </summary>
+        /// <value>
+        /// The name of the organization producing the track (i.e. the 'record label').
+        /// </value>
+        public string Publisher => Tags.TryGetValue("Publisher", out var result) ? (string)result : null;
+
+        /// <summary>
+        /// Gets the publishers official web page.
+        /// </summary>
+        /// <value>
+        /// The publishers official web page.
+        /// </value>
+        public string PublisherUrl => Tags.TryGetValue("Publisher/URL", out var result) ? (string)result : null;
+
+        /// <summary>
+        /// Gets the name of the organization distributing track.
+        /// </summary>
+        /// <value>
+        /// The name of the organization distributing track.
+        /// </value>
+        public string DistributedBy => Tags.TryGetValue("DistributedBy", out var result) ? (string)result : null;
+
+        /// <summary>
+        /// Gets the average number of beats per minute in the complete target.
+        /// </summary>
+        /// <value>
+        /// The average number of beats per minute in the complete target.
+        /// </value>
+        public int? Bpm => Tags.TryGetValue("BPM", out var result) ? (int?)result : null;
+
+        /// <summary>
+        /// Gets the cover media.
+        /// </summary>
+        /// <value>
+        /// The cover media.
+        /// </value>
+        public IEnumerable<CoverInfo> Covers { get; set; }
+
+        /// <summary>
+        /// Describes properties of the cover tags
+        /// </summary>
+        public class CoverInfo
+        {
+            /// <summary>
+            /// Gets a value indicating whether this <see cref="CoverInfo"/> is exists.
+            /// </summary>
+            /// <value>
+            /// <c>true</c> if exists; otherwise, <c>false</c>.
+            /// </value>
+            public bool Exists { get; internal set; }
+
+            /// <summary>
+            /// Gets the description of the cover.
+            /// </summary>
+            /// <value>
+            /// The description of the cover.
+            /// </value>
+            public string Description { get; internal set; }
+
+            /// <summary>
+            /// Gets the type of the cover.
+            /// </summary>
+            /// <value>
+            /// The type of the cover.
+            /// </value>
+            public string Type { get; internal set; }
+
+            /// <summary>
+            /// Gets the MIME of the cover.
+            /// </summary>
+            /// <value>
+            /// The MIME of the cover.
+            /// </value>
+            public string Mime { get; internal set; }
+
+            /// <summary>
+            /// Gets the cover data.
+            /// </summary>
+            /// <value>
+            /// The cover data.
+            /// </value>
+            public byte[] Data { get; internal set; }
+        }
+    }
+}

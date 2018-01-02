@@ -1,6 +1,6 @@
 using JetBrains.Annotations;
 
-namespace MediaInfo.DotNetWrapper
+namespace MediaInfo.DotNetWrapper.Enumerations
 {
     [PublicAPI]
     public enum StreamKind

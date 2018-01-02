@@ -999,20 +999,17 @@ namespace MediaInfo.DotNetWrapper
 
         public static string GetLanguageByLcid(int lcid)
         {
-            string result;
-            return LanguageLcids.TryGetValue((lcid & 0x3FF) + 0x400, out result) ? result : UnknownLanguage;
+            return LanguageLcids.TryGetValue((lcid & 0x3FF) + 0x400, out string result) ? result : UnknownLanguage;
         }
 
         public static string GetLanguageByShortName(string source)
         {
-            string result;
-            return Languages.TryGetValue(source.ToUpper(), out result) ? result : string.Empty;
+            return Languages.TryGetValue(source.ToUpper(), out string result) ? result : string.Empty;
         }
 
         public static int GetLcidByShortName(string source)
         {
-            int result;
-            return Lcids.TryGetValue(source.ToUpper(), out result) ? result : 0;
+            return Lcids.TryGetValue(source.ToUpper(), out int result) ? result : 0;
         }
     }
 }
