@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>MediaInfo.DotNetWrapper is a wrappper for the MediaInfo.dll (https://mediaarea.net/en/MediaInfo). MediaInfo is a convenient unified display of the most relevant technical and tag data for video and audio files.</Description>
+    <Copyright>Copyright (C) 2016-2017 Stef Heyenrath</Copyright>
+    <AssemblyTitle>MediaInfo.DotNetWrapper</AssemblyTitle>
+    <VersionPrefix>1.0.3.0</VersionPrefix>
+    <Authors>Yaroslav V Tatarenko;Stef Heyenrath</Authors>
+    <TargetFramework>net40</TargetFramework>
+    <AssemblyName>MediaInfo.DotNetWrapper</AssemblyName>
+    <PackageId>MediaInfo.DotNetWrapper</PackageId>
+    <PackageTags>MediaInfo;MediaInfo.dll;MediaInfo.Native;DotNetWrapper;wrapper;dotnet;c#;.net</PackageTags>
+    <PackageReleaseNotes>Upgraded to 17.12.0</PackageReleaseNotes>
+    <PackageIconUrl>https://raw.githubusercontent.com/StefH/MediaInfo.DotNetWrapper/master/logo/MediaInfo.NET.png</PackageIconUrl>
+    <PackageProjectUrl>https://github.com/StefH/MediaInfo.DotNetWrapper</PackageProjectUrl>
+    <PackageLicenseUrl>https://raw.githubusercontent.com/StefH/MediaInfo.DotNetWrapper/master/LICENSE</PackageLicenseUrl>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/StefH/MediaInfo.DotNetWrapper</RepositoryUrl>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediaInfo.Native" Version="17.12.0" />
+    <PackageReference Include="JetBrains.Annotations" Version="10.4.0">
+      <PrivateAssets>All</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net40' ">
+    <Reference Include="System" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+
+</Project>
