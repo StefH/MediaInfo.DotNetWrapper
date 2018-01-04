@@ -6,7 +6,7 @@
     <AssemblyTitle>MediaInfo.DotNetWrapper</AssemblyTitle>
     <VersionPrefix>1.0.3.0</VersionPrefix>
     <Authors>Yaroslav V Tatarenko;Stef Heyenrath</Authors>
-    <TargetFramework>net40</TargetFramework>
+    <TargetFrameworks>net35;net40</TargetFrameworks>
     <AssemblyName>MediaInfo.DotNetWrapper</AssemblyName>
     <PackageId>MediaInfo.DotNetWrapper</PackageId>
     <PackageTags>MediaInfo;MediaInfo.dll;MediaInfo.Native;DotNetWrapper;wrapper;dotnet;c#;.net</PackageTags>
@@ -26,9 +26,13 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net35' ">
+    <Reference Include="System" />
+    <PackageReference Include="NetLegacySupport.Tuple" Version="1.1.1" />
+  </ItemGroup>
+
   <ItemGroup Condition=" '$(TargetFramework)' == 'net40' ">
     <Reference Include="System" />
-    <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
 
 </Project>

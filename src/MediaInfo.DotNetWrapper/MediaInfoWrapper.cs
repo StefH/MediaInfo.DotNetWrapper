@@ -50,7 +50,7 @@ namespace MediaInfo.DotNetWrapper
           { ".TXT", true },
           { ".VKT", true },
           { ".VSF", true },
-          { ".ZEG", true },
+          { ".ZEG", true }
         };
 
         #endregion
@@ -62,7 +62,7 @@ namespace MediaInfo.DotNetWrapper
         /// </summary>
         /// <param name="filePath">The file path.</param>
         public MediaInfoWrapper(string filePath)
-          : this(filePath, Environment.Is64BitProcess ? @".\x64" : @".\x86")
+          : this(filePath, Utils.Is64BitProcess ? @".\x64" : @".\x86")
         {
         }
 

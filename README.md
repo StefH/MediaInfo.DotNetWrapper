@@ -5,7 +5,9 @@ A C# .NET Wrapper for the [MediaInfo.Native](https://www.nuget.org/packages/Medi
 
 [![NuGet Badge](https://buildstats.info/nuget/Mediainfo.DotNetWrapper)](https://www.nuget.org/packages/Mediainfo.DotNetWrapper)
 
-Supported framework is **.NET 4.0** and up.
+Supported frameworks are
+- .NET 3.5
+- .NET 4.0 and up
 
 Note that you need to build you application/library in **x64** or **x86**, else it will not work.
 

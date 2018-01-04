@@ -1,7 +1,7 @@
 ﻿using System;
 using MediaInfo.DotNetWrapper.Enumerations;
 
-namespace MediaInfo.DotNetWrapper.ConsoleTest
+namespace MediaInfo.DotNetWrapper.ConsoleTest.net35
 {
     static class Program
     {
@@ -55,7 +55,7 @@ namespace MediaInfo.DotNetWrapper.ConsoleTest
                     mediaInfo.Option("Inform", "General;File size is %FileSize% bytes");
                     text += mediaInfo.Inform();
 
-                    foreach (string param in new[] {"BitRate", "BitRate/String", "BitRate_Mode"})
+                    foreach (string param in new[] { "BitRate", "BitRate/String", "BitRate_Mode" })
                     {
                         text += "\r\n\r\nGet with Stream=Audio and Parameter='" + param + "'\r\n";
                         text += mediaInfo.Get(StreamKind.Audio, 0, param);

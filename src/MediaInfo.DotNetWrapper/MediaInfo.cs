@@ -39,13 +39,10 @@ namespace MediaInfo.DotNetWrapper
 
             if (_mustUseAnsi)
             {
-                Status result;
                 using (var fileNameMemory = GlobalMemory.StringToGlobalAnsi(fileName))
                 {
-                    result = (Status)NativeMethods.MediaInfoA_Open(_handle, fileNameMemory.Handle);
+                    return (Status)NativeMethods.MediaInfoA_Open(_handle, fileNameMemory.Handle);
                 }
-
-                return result;
             }
 
             return (Status)NativeMethods.MediaInfo_Open(_handle, fileName);
@@ -96,10 +93,9 @@ namespace MediaInfo.DotNetWrapper
 
             if (_mustUseAnsi)
             {
-                string result;
                 using (var parameterPtr = GlobalMemory.StringToGlobalAnsi(parameter))
                 {
-                    result =
+                    return
                       Marshal.PtrToStringAnsi(
                         NativeMethods.MediaInfoA_Get(
                           _handle,
@@ -109,8 +105,6 @@ namespace MediaInfo.DotNetWrapper
                           (IntPtr)kindOfInfo,
                           (IntPtr)kindOfSearch));
                 }
-
-                return result;
             }
 
             return
@@ -139,14 +133,11 @@ namespace MediaInfo.DotNetWrapper
 
             if (_mustUseAnsi)
             {
-                string result;
                 using (var optionPtr = GlobalMemory.StringToGlobalAnsi(option))
                 using (var valuePtr = GlobalMemory.StringToGlobalAnsi(value))
                 {
-                    result = Marshal.PtrToStringAnsi(NativeMethods.MediaInfoA_Option(_handle, optionPtr.Handle, valuePtr.Handle));
+                    return Marshal.PtrToStringAnsi(NativeMethods.MediaInfoA_Option(_handle, optionPtr.Handle, valuePtr.Handle));
                 }
-
-                return result;
             }
 
             return Marshal.PtrToStringUni(NativeMethods.MediaInfo_Option(_handle, option, value));
@@ -196,7 +187,9 @@ namespace MediaInfo.DotNetWrapper
         private void CheckHandle()
         {
             if (_handle == IntPtr.Zero)
+            {
                 throw new Exception("Unable to load MediaInfo library");
+            }
         }
     }
 }
