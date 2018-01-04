@@ -54,7 +54,7 @@ namespace MediaInfo.DotNetWrapper.Builder
       { "A_AAC/MPEG4/LTP", AudioCodec.AacMpeg4Ltp },
       { "A_ALAC", AudioCodec.Alac },
       { "A_APE", AudioCodec.Ape },
-      { "SAMR", AudioCodec.Amr },
+      { "SAMR", AudioCodec.Amr }
     };
 
         private static readonly Dictionary<string, AudioCodec> Codecs = new Dictionary<string, AudioCodec>(StringComparer.OrdinalIgnoreCase)
@@ -118,7 +118,7 @@ namespace MediaInfo.DotNetWrapper.Builder
       { "AMR", AudioCodec.Amr },
       { "160", AudioCodec.Wma1 },
       { "161", AudioCodec.Wma2 },
-      { "162", AudioCodec.Wma9 },
+      { "162", AudioCodec.Wma9 }
     };
 
         #endregion

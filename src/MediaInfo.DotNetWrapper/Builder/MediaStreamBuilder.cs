@@ -86,7 +86,7 @@ namespace MediaInfo.DotNetWrapper.Builder
                 Id = Get<int>("ID", int.TryParse),
                 Name = Get("Title"),
                 StreamPosition = StreamPosition,
-                StreamNumber = StreamNumber,
+                StreamNumber = StreamNumber
             };
         }
 

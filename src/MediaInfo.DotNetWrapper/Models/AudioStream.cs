@@ -71,7 +71,7 @@ namespace MediaInfo.DotNetWrapper.Models
       { AudioCodec.Atrac3, "ATRAC3" },
       { AudioCodec.Atrac3Plus, "ATRAC3plus" },
       { AudioCodec.AtracLossless, "ATRAC Advanced Lossless" },
-      { AudioCodec.Atrac9, "ATRAC9" },
+      { AudioCodec.Atrac9, "ATRAC9" }
     };
 
 
@@ -86,7 +86,7 @@ namespace MediaInfo.DotNetWrapper.Models
       { 7, "6.1" },
       { 8, "7.1" },
       { 9, "7.2" },
-      { 10, "7.2.1" },
+      { 10, "7.2.1" }
     };
 
         #endregion

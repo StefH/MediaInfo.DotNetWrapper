@@ -178,7 +178,7 @@ namespace MediaInfo.DotNetWrapper.Builder
       { "HDV", VideoCodec.Hdv },
       { "WMV1", VideoCodec.Wmv1 },
       { "WMV2", VideoCodec.Wmv2 },
-      { "WMV3", VideoCodec.Wmv3 },
+      { "WMV3", VideoCodec.Wmv3 }
     };
 
         #endregion

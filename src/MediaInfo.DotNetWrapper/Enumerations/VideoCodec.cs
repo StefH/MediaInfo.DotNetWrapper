@@ -313,6 +313,6 @@
         /// <summary>
         /// Bink video
         /// </summary>
-        BinkVideo,
+        BinkVideo
     }
 }
