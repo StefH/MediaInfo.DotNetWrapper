@@ -6,7 +6,7 @@
     <AssemblyTitle>MediaInfo.DotNetWrapper</AssemblyTitle>
     <VersionPrefix>1.0.3.0</VersionPrefix>
     <Authors>Yaroslav V Tatarenko;Stef Heyenrath</Authors>
-    <TargetFrameworks>net35;net40</TargetFrameworks>
+    <TargetFrameworks>net35;net40;netstandard2.0</TargetFrameworks>
     <AssemblyName>MediaInfo.DotNetWrapper</AssemblyName>
     <PackageId>MediaInfo.DotNetWrapper</PackageId>
     <PackageTags>MediaInfo;MediaInfo.dll;MediaInfo.Native;DotNetWrapper;wrapper;dotnet;c#;.net</PackageTags>
@@ -34,5 +34,5 @@
   <ItemGroup Condition=" '$(TargetFramework)' == 'net40' ">
     <Reference Include="System" />
   </ItemGroup>
-
+  
 </Project>
