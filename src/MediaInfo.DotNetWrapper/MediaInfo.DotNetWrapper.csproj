@@ -20,10 +20,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MediaInfo.Native" Version="17.12.0" />
     <PackageReference Include="JetBrains.Annotations" Version="10.4.0">
       <PrivateAssets>All</PrivateAssets>
     </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' != 'netstandard2.0' ">
+    <PackageReference Include="MediaInfo.Native" Version="17.12.0" />
   </ItemGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'net35' ">
