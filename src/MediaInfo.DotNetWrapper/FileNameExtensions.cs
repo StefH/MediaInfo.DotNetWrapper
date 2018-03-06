@@ -251,6 +251,7 @@ namespace MediaInfo.DotNetWrapper
             return path.StartsWith(@"http://play.last.fm", StringComparison.OrdinalIgnoreCase);
         }
 
+#if !NETSTANDARD2_0
         /// <summary>
         /// Determines whether specified path is network path.
         /// </summary>
@@ -290,6 +291,7 @@ namespace MediaInfo.DotNetWrapper
             if ((NativeSystemMethods.GetDriveType(drive) & 6) == 6) return 6; //ram disk
             return 0;
         }
+#endif
 
         /// <summary>
         /// Determines whether the specified string path is UNC network.
