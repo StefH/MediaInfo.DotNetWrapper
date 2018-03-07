@@ -80,12 +80,13 @@ namespace MediaInfo.DotNetWrapper
             Chapters = new List<ChapterStream>();
             MenuStreams = new List<MenuStream>();
 
+#if !NETSTANDARD2_0
             if (!MediaInfoExist(pathToDll))
             {
                 MediaInfoNotloaded = true;
                 return;
             }
-
+#endif
             if (string.IsNullOrEmpty(filePath))
             {
                 MediaInfoNotloaded = true;
@@ -290,6 +291,7 @@ namespace MediaInfo.DotNetWrapper
 
         #endregion
 
+#if !NETSTANDARD2_0
         /// <summary>
         /// Checks if mediaInfo.dll file exist.
         /// </summary>
@@ -299,6 +301,7 @@ namespace MediaInfo.DotNetWrapper
         {
             return File.Exists(Path.Combine(pathToDll, "MediaInfo.dll"));
         }
+#endif
 
         #region private methods
 
