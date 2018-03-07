@@ -1,3 +1,10 @@
+# 1.0.5.0 (07 March 2018)
+
+ - [#5](https://github.com/StefH/MediaInfo.DotNetWrapper/pull/5) - fix: MediaWrapper broken in net standard contributed by Ashkan Daie ([ashkandaie](https://github.com/ashkandaie))
+
+Commits: 6b920f3c21...536917d940
+
+
 # 1.0.4.0 (06 March 2018)
 
 - [#4](https://github.com/StefH/MediaInfo.DotNetWrapper/pull/4) - Support .net standard 2.0 contributed by Ashkan Daie ([ashkandaie](https://github.com/ashkandaie))

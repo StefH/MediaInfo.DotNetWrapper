@@ -1,21 +1,20 @@
 os: Visual Studio 2015
 
-version: 1.0.3.{build}
+version: 1.0.5.{build}
 
 configuration:
 - Release
 
 platform:
 - Any CPU
-- x64
 - x86
 
 init:
 - ps: $Env:LABEL = "CI" + $Env:APPVEYOR_BUILD_NUMBER.PadLeft(5, "0")
 
 install:
-- ps: Start-FileDownload 'https://download.microsoft.com/download/D/7/2/D725E47F-A4F1-4285-8935-A91AE2FCC06A/dotnet-sdk-2.0.3-win-gs-x64.exe'
-- cmd: dotnet-sdk-2.0.3-win-gs-x64.exe /quiet
+- ps: Start-FileDownload 'https://download.microsoft.com/download/1/1/5/115B762D-2B41-4AF3-9A63-92D9680B9409/dotnet-sdk-2.1.4-win-x64.exe'
+- cmd: dotnet-sdk-2.1.4-win-x64.exe /quiet
 - ps: $env:DOTNET_SKIP_FIRST_TIME_EXPERIENCE = "true"
 
 environment:
@@ -24,6 +23,7 @@ environment:
 build_script:
 - dotnet restore .\src\MediaInfo.DotNetWrapper\MediaInfo.DotNetWrapper.csproj
 - dotnet build .\src\MediaInfo.DotNetWrapper\MediaInfo.DotNetWrapper.csproj --framework net40 -c %CONFIGURATION%
+- dotnet build .\src\MediaInfo.DotNetWrapper\MediaInfo.DotNetWrapper.csproj --framework netstandard2.0 -c %CONFIGURATION%
 
 artifacts:
 - path: artifacts\**\*.*

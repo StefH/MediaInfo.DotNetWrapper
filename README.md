@@ -16,7 +16,7 @@ Based on [MP-MediaInfo](https://github.com/yartat/MP-MediaInfo).
 
 For example see : test\MediaInfo.DotNetWrapper.ConsoleTest
 
-# Taregeting .Net Standard 2.0 / .Net Core 2.0
+# Targeting .Net Standard 2.0 / .Net Core 2.0
 
 MediaInfo.Native is not included when targeting .Net Standard / Core. Manually include MediaInfo native libaries for your operating system / platform.
 
