@@ -23,7 +23,7 @@ environment:
 build_script:
 - dotnet restore .\src\MediaInfo.DotNetWrapper\MediaInfo.DotNetWrapper.csproj
 - dotnet build .\src\MediaInfo.DotNetWrapper\MediaInfo.DotNetWrapper.csproj --framework net40 -c %CONFIGURATION%
-- dotnet build .\src\MediaInfo.DotNetWrapper\MediaInfo.DotNetWrapper.csproj --framework netstandard2.0 -c %CONFIGURATION%
+- dotnet build .\src\MediaInfo.DotNetWrapper\MediaInfo.DotNetWrapper.csproj --framework netstandard1.3 -c %CONFIGURATION%
 
 artifacts:
 - path: artifacts\**\*.*

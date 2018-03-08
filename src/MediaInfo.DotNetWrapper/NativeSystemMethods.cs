@@ -1,4 +1,5 @@
-﻿// ReSharper disable InconsistentNaming
+﻿#if !NETSTANDARD1_3
+// ReSharper disable InconsistentNaming
 using System;
 using System.Runtime.InteropServices;
 
@@ -34,3 +35,4 @@ namespace MediaInfo.DotNetWrapper
         internal static extern long GetDriveType(string driveLetter);
     }
 }
+#endif

@@ -57,6 +57,7 @@ namespace MediaInfo.DotNetWrapper
 
         #region ctor's
 
+#if !NETSTANDARD1_3
         /// <summary>
         /// Initializes a new instance of the <see cref="MediaInfoWrapper"/> class.
         /// </summary>
@@ -65,13 +66,21 @@ namespace MediaInfo.DotNetWrapper
           : this(filePath, Utils.Is64BitProcess ? @".\x64" : @".\x86")
         {
         }
+#endif
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MediaInfoWrapper"/> class.
         /// </summary>
         /// <param name="filePath">The file path.</param>
+#if !NETSTANDARD1_3        
         /// <param name="pathToDll">The path to DLL.</param>
-        protected MediaInfoWrapper(string filePath, string pathToDll)
+#endif        
+        protected MediaInfoWrapper(string filePath
+#if !NETSTANDARD1_3
+        , string pathToDll)
+#else
+        )
+#endif
         {
             MediaInfoNotloaded = false;
             VideoStreams = new List<VideoStream>();
@@ -80,7 +89,7 @@ namespace MediaInfo.DotNetWrapper
             Chapters = new List<ChapterStream>();
             MenuStreams = new List<MenuStream>();
 
-#if !NETSTANDARD2_0
+#if !NETSTANDARD1_3
             if (!MediaInfoExist(pathToDll))
             {
                 MediaInfoNotloaded = true;
@@ -115,7 +124,7 @@ namespace MediaInfo.DotNetWrapper
                 {
                     if (filePath.EndsWith(".ifo", StringComparison.OrdinalIgnoreCase))
                     {
-                        filePath = ProcessDvd(filePath, pathToDll, providerNumber);
+                        filePath = ProcessDvd(filePath, providerNumber);
                     }
                     else if (filePath.EndsWith(".bdmv", StringComparison.OrdinalIgnoreCase))
                     {
@@ -131,7 +140,7 @@ namespace MediaInfo.DotNetWrapper
                     HasExternalSubtitles = !string.IsNullOrEmpty(filePath) && CheckHasExternalSubtitles(filePath);
                 }
 
-                ExtractInfo(filePath, pathToDll, providerNumber);
+                ExtractInfo(filePath, providerNumber);
             }
             catch
             {
@@ -151,7 +160,7 @@ namespace MediaInfo.DotNetWrapper
             return result;
         }
 
-        private string ProcessDvd(string filePath, string pathToDll, NumberFormatInfo providerNumber)
+        private string ProcessDvd(string filePath, NumberFormatInfo providerNumber)
         {
             IsDvd = true;
             var path = Path.GetDirectoryName(filePath) ?? string.Empty;
@@ -186,7 +195,7 @@ namespace MediaInfo.DotNetWrapper
             return filePath;
         }
 
-        private void ExtractInfo(string filePath, string pathToDll, NumberFormatInfo providerNumber)
+        private void ExtractInfo(string filePath, NumberFormatInfo providerNumber)
         {
             using (var mediaInfo = new MediaInfo())
             {
@@ -291,7 +300,7 @@ namespace MediaInfo.DotNetWrapper
 
         #endregion
 
-#if !NETSTANDARD2_0
+#if !NETSTANDARD1_3
         /// <summary>
         /// Checks if mediaInfo.dll file exist.
         /// </summary>
