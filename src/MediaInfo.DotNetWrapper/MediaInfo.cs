@@ -22,10 +22,10 @@ namespace MediaInfo.DotNetWrapper
                 _handle = IntPtr.Zero;
             }
 
-#if !NETSTANDARD1_3
-            _mustUseAnsi = Environment.OSVersion.ToString().IndexOf("Windows", StringComparison.OrdinalIgnoreCase) == -1;
+#if NETSTANDARD1_3
+            _mustUseAnsi = !RuntimeInformation.IsOSPlatform(OSPlatform.Windows);
 #else
-            _mustUseAnsi = true;
+            _mustUseAnsi = Environment.OSVersion.ToString().IndexOf("Windows", StringComparison.OrdinalIgnoreCase) == -1;
 #endif
         }
 
