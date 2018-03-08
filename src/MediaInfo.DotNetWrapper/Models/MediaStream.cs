@@ -10,7 +10,10 @@ namespace MediaInfo.DotNetWrapper.Models
     /// </summary>
     /// <seealso cref="MarshalByRefObject" />
     [PublicAPI]
-    public abstract class MediaStream : MarshalByRefObject
+    public abstract class MediaStream 
+#if !NETSTANDARD1_3    
+    : MarshalByRefObject
+#endif
     {
         /// <summary>
         /// Gets or sets the media steam id.

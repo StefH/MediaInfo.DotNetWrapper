@@ -251,7 +251,7 @@ namespace MediaInfo.DotNetWrapper
             return path.StartsWith(@"http://play.last.fm", StringComparison.OrdinalIgnoreCase);
         }
 
-#if !NETSTANDARD2_0
+#if !NETSTANDARD1_3
         /// <summary>
         /// Determines whether specified path is network path.
         /// </summary>

@@ -57,7 +57,7 @@ namespace MediaInfo.DotNetWrapper
 
         #region ctor's
 
-#if !NETSTANDARD2_0
+#if !NETSTANDARD1_3
         /// <summary>
         /// Initializes a new instance of the <see cref="MediaInfoWrapper"/> class.
         /// </summary>
@@ -72,11 +72,11 @@ namespace MediaInfo.DotNetWrapper
         /// Initializes a new instance of the <see cref="MediaInfoWrapper"/> class.
         /// </summary>
         /// <param name="filePath">The file path.</param>
-#if !NETSTANDARD2_0        
+#if !NETSTANDARD1_3        
         /// <param name="pathToDll">The path to DLL.</param>
 #endif        
         protected MediaInfoWrapper(string filePath
-#if !NETSTANDARD2_0
+#if !NETSTANDARD1_3
         , string pathToDll)
 #else
         )
@@ -89,7 +89,7 @@ namespace MediaInfo.DotNetWrapper
             Chapters = new List<ChapterStream>();
             MenuStreams = new List<MenuStream>();
 
-#if !NETSTANDARD2_0
+#if !NETSTANDARD1_3
             if (!MediaInfoExist(pathToDll))
             {
                 MediaInfoNotloaded = true;
@@ -300,7 +300,7 @@ namespace MediaInfo.DotNetWrapper
 
         #endregion
 
-#if !NETSTANDARD2_0
+#if !NETSTANDARD1_3
         /// <summary>
         /// Checks if mediaInfo.dll file exist.
         /// </summary>
