@@ -1,3 +1,10 @@
+# 1.0.6.0 (08 March 2018)
+
+ - [#6](https://github.com/StefH/MediaInfo.DotNetWrapper/pull/6) - Target Net Standard 1.3 contributed by Ashkan Daie ([ashkandaie](https://github.com/ashkandaie))
+
+Commits: 6b920f3c21...01d6f01206
+
+
 # 1.0.5.0 (07 March 2018)
 
  - [#5](https://github.com/StefH/MediaInfo.DotNetWrapper/pull/5) - fix: MediaWrapper broken in net standard contributed by Ashkan Daie ([ashkandaie](https://github.com/ashkandaie))
