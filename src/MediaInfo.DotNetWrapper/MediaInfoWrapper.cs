@@ -74,8 +74,11 @@ namespace MediaInfo.DotNetWrapper
         /// <param name="filePath">The file path.</param>
 #if !NETSTANDARD1_3        
         /// <param name="pathToDll">The path to DLL.</param>
+        protected
+#else
+        public
 #endif        
-        protected MediaInfoWrapper(string filePath
+        MediaInfoWrapper(string filePath
 #if !NETSTANDARD1_3
         , string pathToDll)
 #else
