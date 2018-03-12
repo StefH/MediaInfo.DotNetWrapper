@@ -1,3 +1,10 @@
+# 1.0.7.0 (12 March 2018)
+
+ - [#8](https://github.com/StefH/MediaInfo.DotNetWrapper/pull/8) - fix: MediaInfoWrapper is not publicly exposed in net standard contributed by Ashkan Daie ([ashkandaie](https://github.com/ashkandaie))
+
+Commits: 2c8c26e4e1...c41895e16c
+
+
 # 1.0.6.0 (08 March 2018)
 
  - [#6](https://github.com/StefH/MediaInfo.DotNetWrapper/pull/6) - Target Net Standard 1.3 contributed by Ashkan Daie ([ashkandaie](https://github.com/ashkandaie))

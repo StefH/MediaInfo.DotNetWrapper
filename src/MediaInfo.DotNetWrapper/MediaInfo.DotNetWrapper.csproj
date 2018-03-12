@@ -4,7 +4,7 @@
     <Description>MediaInfo.DotNetWrapper is a wrappper for the MediaInfo.dll (https://mediaarea.net/en/MediaInfo). MediaInfo is a convenient unified display of the most relevant technical and tag data for video and audio files.</Description>
     <Copyright>Copyright (C) 2016-2017 Stef Heyenrath</Copyright>
     <AssemblyTitle>MediaInfo.DotNetWrapper</AssemblyTitle>
-    <VersionPrefix>1.0.6.0</VersionPrefix>
+    <VersionPrefix>1.0.7.0</VersionPrefix>
     <Authors>Yaroslav V Tatarenko;Stef Heyenrath</Authors>
     <TargetFrameworks>net35;net40;netstandard1.3</TargetFrameworks>
     <AssemblyName>MediaInfo.DotNetWrapper</AssemblyName>
