@@ -63,7 +63,7 @@ namespace MediaInfo.DotNetWrapper
         /// </summary>
         /// <param name="filePath">The file path.</param>
         public MediaInfoWrapper(string filePath)
-          : this(filePath, Utils.Is64BitProcess ? @".\x64" : @".\x86")
+          : this(filePath, GetDefaultDllPath())
         {
         }
 #endif
@@ -72,7 +72,7 @@ namespace MediaInfo.DotNetWrapper
         /// Initializes a new instance of the <see cref="MediaInfoWrapper"/> class.
         /// </summary>
         /// <param name="filePath">The file path.</param>
-#if !NETSTANDARD1_3        
+#if !NETSTANDARD1_3
         /// <param name="pathToDll">The path to DLL.</param>
         protected
 #else
@@ -98,6 +98,12 @@ namespace MediaInfo.DotNetWrapper
                 MediaInfoNotloaded = true;
                 return;
             }
+
+            string fullDllPath = Path.GetFullPath(Path.Combine(pathToDll, "MediaInfo.dll"));
+            NativeSystemMethods.LoadLibraryEx(
+                fullDllPath,
+                IntPtr.Zero,
+                NativeSystemMethods.LoadLibraryFlags.LOAD_WITH_ALTERED_SEARCH_PATH);
 #endif
             if (string.IsNullOrEmpty(filePath))
             {
@@ -312,6 +318,37 @@ namespace MediaInfo.DotNetWrapper
         public static bool MediaInfoExist(string pathToDll)
         {
             return File.Exists(Path.Combine(pathToDll, "MediaInfo.dll"));
+        }
+
+        private static string GetDefaultDllPath()
+        {
+            string dllSubDirectory = Utils.Is64BitProcess ? "x64" : "x86";
+
+            string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            if (!string.IsNullOrEmpty(baseDirectory))
+            {
+                string candidate = Path.Combine(baseDirectory, dllSubDirectory);
+                if (MediaInfoExist(candidate))
+                {
+                    return candidate;
+                }
+            }
+
+            string assemblyLocation = typeof(MediaInfoWrapper).Assembly.Location;
+            if (!string.IsNullOrEmpty(assemblyLocation))
+            {
+                string assemblyDirectory = Path.GetDirectoryName(assemblyLocation);
+                if (!string.IsNullOrEmpty(assemblyDirectory))
+                {
+                    string candidate = Path.Combine(assemblyDirectory, dllSubDirectory);
+                    if (MediaInfoExist(candidate))
+                    {
+                        return candidate;
+                    }
+                }
+            }
+
+            return Utils.Is64BitProcess ? @".\x64" : @".\x86";
         }
 #endif
 

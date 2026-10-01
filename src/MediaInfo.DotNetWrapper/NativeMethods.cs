@@ -1,10 +1,82 @@
 ﻿using System;
+using System.IO;
 using System.Runtime.InteropServices;
 
 namespace MediaInfo.DotNetWrapper
 {
     internal static class NativeMethods
     {
+#if !NETSTANDARD1_3
+        static NativeMethods()
+        {
+            TryLoadNativeMediaInfo();
+        }
+
+        /// <summary>
+        // Explicitly loads MediaInfo.dll from the application/assembly directory before the first P/Invoke.
+        // Does not depend on Environment.CurrentDirectory (for Windows services, it is equal to C:\Windows\System32).
+        /// </summary>
+        private static void TryLoadNativeMediaInfo()
+        {
+            string arch = Utils.Is64BitProcess ? "x64" : "x86";
+
+            string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+
+            string assemblyDirectory = null;
+            try
+            {
+                assemblyDirectory = Path.GetDirectoryName(typeof(NativeMethods).Assembly.Location);
+            }
+            catch
+            {
+                // ignore
+            }
+
+            TryLoadFrom(baseDirectory, arch);
+            TryLoadFrom(assemblyDirectory, arch);
+
+            try
+            {
+                TryLoadFrom(Path.GetFullPath(Utils.Is64BitProcess ? @".\x64" : @".\x86"), arch);
+            }
+            catch
+            {
+                // ignore
+            }
+        }
+
+        private static void TryLoadFrom(string root, string arch)
+        {
+            if (string.IsNullOrEmpty(root))
+            {
+                return;
+            }
+
+			var candidates = new[]
+			{
+				Path.Combine(Path.Combine(root, arch), "MediaInfo.dll"),
+				Path.Combine(root, "MediaInfo.dll")
+			};
+
+            for (int i = 0; i < candidates.Length; i++)
+            {
+                if (!File.Exists(candidates[i]))
+                {
+                    continue;
+                }
+
+                IntPtr handle = NativeSystemMethods.LoadLibraryEx(
+                    candidates[i],
+                    IntPtr.Zero,
+                    NativeSystemMethods.LoadLibraryFlags.LOAD_WITH_ALTERED_SEARCH_PATH);
+
+                if (handle != IntPtr.Zero)
+                {
+                    return;
+                }
+            }
+        }
+#endif
         // Import of DLL functions. DO NOT USE until you know what you do (MediaInfo DLL do NOT use CoTaskMemAlloc to allocate memory)
         [DllImport("mediainfo")]
         internal static extern IntPtr MediaInfo_New();
